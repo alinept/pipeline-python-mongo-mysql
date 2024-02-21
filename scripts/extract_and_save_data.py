@@ -1,6 +1,9 @@
+import os
+from dotenv import load_dotenv
 from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
 import requests
+
 
 def connect_mongo(uri):
     # Criando um novo cliente e conectando ao servidor
@@ -32,7 +35,8 @@ def insert_data(col, data):
 
 if __name__ == "__main__":
 
-    client = connect_mongo("mongodb+srv://alinep:12345@cluster-pipeline.8f9wbfp.mongodb.net/?retryWrites=true&w=majority")
+    load_dotenv()
+    client = connect_mongo(os.getenv("MONGODB_URI"))
     db = create_connect_db(client, "db_produtos_desafio")
     col = create_connect_collection(db, "produtos")
 

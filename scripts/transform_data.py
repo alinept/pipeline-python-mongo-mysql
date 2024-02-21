@@ -42,7 +42,7 @@ def save_csv(df, path):
 if __name__ == "__main__":
 
     # estabelecendo a conexão e recuperando os dados do MongoDB
-    client = connect_mongo("sua_uri")
+    client = connect_mongo("url")
     db = create_connect_db(client, "db_produtos_desafio")
     col = create_connect_collection(db, "produtos")
 
